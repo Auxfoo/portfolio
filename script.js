@@ -174,45 +174,8 @@ function createParticles() {
     }
 }
 
-// ===== Contact Form =====
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        submitBtn.innerHTML = '<span>Sending...</span>';
-        submitBtn.disabled = true;
-
-        try {
-            const formData = new FormData(contactForm);
-            const response = await fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            });
-
-            if (response.ok) {
-                submitBtn.innerHTML = '<span>Message Sent! ✓</span>';
-                submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
-                contactForm.reset();
-            } else {
-                throw new Error('Form submission failed');
-            }
-        } catch (error) {
-            submitBtn.innerHTML = '<span>Error - Try Again</span>';
-            submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
-        }
-
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.style.background = '';
-            submitBtn.disabled = false;
-        }, 3000);
-    });
-}
+// ===== Contact Form (Netlify handles this natively) =====
+// Form submission is handled by Netlify Forms - no JS needed
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
