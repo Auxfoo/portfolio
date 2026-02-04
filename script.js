@@ -9,7 +9,7 @@ const progressBars = document.querySelectorAll('.progress-bar');
 const particlesContainer = document.getElementById('particles');
 
 // ===== Typing Animation =====
-const roles = ['Mobile App Developer', 'Web Developer', 'Flutter Developer', 'Full-Stack Developer'];
+const roles = ['Full Stack Developer', 'Mobile App Developer', 'React Developer', 'Flutter Developer'];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
