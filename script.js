@@ -96,6 +96,7 @@ navLinks.forEach(link => {
 function animateCounters() {
     statNumbers.forEach(stat => {
         const target = parseInt(stat.getAttribute('data-count'));
+        const suffix = stat.getAttribute('data-suffix') || '';
         const duration = 2000;
         const step = target / (duration / 16);
         let current = 0;
@@ -103,10 +104,10 @@ function animateCounters() {
         const updateCounter = () => {
             current += step;
             if (current < target) {
-                stat.textContent = Math.floor(current);
+                stat.textContent = Math.floor(current) + suffix;
                 requestAnimationFrame(updateCounter);
             } else {
-                stat.textContent = target;
+                stat.textContent = target + suffix;
             }
         };
 
